@@ -1,43 +1,43 @@
-local config = require("tokyonight.config")
-local colors = require("tokyonight.colors").setup(config)
-local util = require("tokyonight.util")
+local config = require("yesternight.config")
+local colors = require("yesternight.colors").setup(config)
+local util = require("yesternight.util")
 
-local tokyonight = {}
+local yesternight = {}
 
-tokyonight.normal = {
+yesternight.normal = {
   a = { bg = colors.blue, fg = colors.black },
   b = { bg = colors.fg_gutter, fg = colors.blue },
   c = { bg = colors.bg_statusline, fg = colors.fg_sidebar },
 }
 
-tokyonight.insert = {
+yesternight.insert = {
   a = { bg = colors.green, fg = colors.black },
   b = { bg = colors.fg_gutter, fg = colors.green },
 }
 
-tokyonight.command = {
+yesternight.command = {
   a = { bg = colors.yellow, fg = colors.black },
   b = { bg = colors.fg_gutter, fg = colors.yellow },
 }
 
-tokyonight.visual = {
+yesternight.visual = {
   a = { bg = colors.magenta, fg = colors.black },
   b = { bg = colors.fg_gutter, fg = colors.magenta },
 }
 
-tokyonight.replace = {
+yesternight.replace = {
   a = { bg = colors.red, fg = colors.black },
   b = { bg = colors.fg_gutter, fg = colors.red },
 }
 
-tokyonight.inactive = {
+yesternight.inactive = {
   a = { bg = colors.bg_statusline, fg = colors.blue },
   b = { bg = colors.bg_statusline, fg = colors.fg_gutter, gui = "bold" },
   c = { bg = colors.bg_statusline, fg = colors.fg_gutter },
 }
 
 if vim.o.background == "light" then
-  for _, mode in pairs(tokyonight) do
+  for _, mode in pairs(yesternight) do
     for _, section in pairs(mode) do
       if section.bg then
         section.bg = util.getColor(section.bg)
@@ -49,10 +49,10 @@ if vim.o.background == "light" then
   end
 end
 
-if vim.g.tokyonight_lualine_bold then
-  for _, mode in pairs(tokyonight) do
+if vim.g.yesternight_lualine_bold then
+  for _, mode in pairs(yesternight) do
     mode.a.gui = "bold"
   end
 end
 
-return tokyonight
+return yesternight

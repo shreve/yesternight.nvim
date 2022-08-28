@@ -1,10 +1,10 @@
-local config = require("tokyonight.config")
-local colors = require("tokyonight.colors").setup(config)
-local util = require("tokyonight.util")
+local config = require("yesternight.config")
+local colors = require("yesternight.colors").setup(config)
+local util = require("yesternight.util")
 
-local tokyonight = {}
+local yesternight = {}
 
-tokyonight.normal = {
+yesternight.normal = {
   left = {{ colors.black, colors.blue }, { colors.blue, colors.fg_gutter }},
   middle = {{ colors.fg, colors.bg_statusline }},
   right = {{ colors.black, colors.blue }, { colors.blue, colors.fg_gutter }},
@@ -12,25 +12,25 @@ tokyonight.normal = {
   warning = {{ colors.black, colors.warning }},
 }
 
-tokyonight.insert = {
+yesternight.insert = {
   left = {{ colors.black, colors.green }, { colors.blue, colors.bg }},
 }
 
-tokyonight.visual = {
+yesternight.visual = {
   left = {{ colors.black, colors.magenta }, { colors.blue, colors.bg }},
 }
 
-tokyonight.replace = {
+yesternight.replace = {
   left = {{ colors.black, colors.red }, { colors.blue, colors.bg }},
 }
 
-tokyonight.inactive = {
+yesternight.inactive = {
   left = {{ colors.blue, colors.bg_statusline }, {colors.dark3, colors.bg }},
   middle = {{ colors.fg_gutter, colors.bg_statusline }},
   right = {{ colors.fg_gutter, colors.bg_statusline }, {colors.dark3, colors.bg }},
 }
 
-tokyonight.tabline = {
+yesternight.tabline = {
   left = {{ colors.dark3, colors.bg_highlight }, {colors.dark3, colors.bg }},
   middle = {{ colors.fg_gutter, colors.bg_statusline }},
   right = {{ colors.fg_gutter, colors.bg_statusline }, {colors.dark3, colors.bg }},
@@ -38,7 +38,7 @@ tokyonight.tabline = {
 }
 
 if vim.o.background == "light" then
-  for _, mode in pairs(tokyonight) do
+  for _, mode in pairs(yesternight) do
     for _, section in pairs(mode) do
       for _, subsection in pairs(section) do
         subsection[1] = util.getColor(subsection[1])
@@ -48,4 +48,4 @@ if vim.o.background == "light" then
   end
 end
 
-return tokyonight
+return yesternight
